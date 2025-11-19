@@ -1,11 +1,9 @@
-import { ArrowRight } from 'lucide-react'
-
 const projects = [
   {
-    title: 'E-Commerce Platform',
+    title: 'Asset Management PWA',
     category: 'Full-Stack Development',
-    description: 'Modern retail experience with AI-powered recommendations and seamless checkout flow',
-    image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?w=800&q=80',
+    description: 'Custom progressive web app for streamlined asset tracking and management',
+    image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80',
     featured: true,
   },
   {
@@ -16,10 +14,10 @@ const projects = [
     featured: false,
   },
   {
-    title: 'Fitness Companion',
-    category: 'Mobile App',
-    description: 'Cross-platform fitness app with 500K+ downloads',
-    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80',
+    title: 'MCP Integration',
+    category: 'AI Solution',
+    description: 'Seamless context protocol implementation for enhanced AI capabilities',
+    image: 'https://images.unsplash.com/photo-1639322537228-f710d846310a?w=800&q=80',
     featured: false,
   },
   {
@@ -27,6 +25,13 @@ const projects = [
     category: 'Web Application',
     description: 'Real-time analytics platform for enterprise clients',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
+    featured: false,
+  },
+  {
+    title: 'Custom Development',
+    category: 'Database Solution',
+    description: 'Tailored database solutions and custom integrations for complex workflows',
+    image: 'https://images.unsplash.com/photo-1551033406-611cf9a28f67?w=800&q=80',
     featured: false,
   },
 ]
@@ -69,10 +74,6 @@ export default function Portfolio() {
               <p className="mb-6 text-lg lg:text-xl leading-relaxed text-white/80">
                 {projects[0].description}
               </p>
-              <button className="group/btn inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl hover:bg-white/20 transition-all text-white font-semibold">
-                View Case Study
-                <ArrowRight size={20} className="group-hover/btn:translate-x-1 transition-transform" />
-              </button>
             </div>
           </div>
 
@@ -80,7 +81,7 @@ export default function Portfolio() {
           {projects.slice(1).map((project, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-3xl lg:col-span-5 bg-white/5 backdrop-blur-xl border border-white/10 hover:border-purple/50 transition-all duration-500"
+              className={`group relative overflow-hidden rounded-3xl ${project.title === 'Custom Development' ? 'lg:col-span-7' : 'lg:col-span-5'} bg-white/5 backdrop-blur-xl border border-white/10 hover:border-purple/50 transition-all duration-500`}
             >
               <div className="relative aspect-[16/9] lg:aspect-[4/3] overflow-hidden">
                 <img

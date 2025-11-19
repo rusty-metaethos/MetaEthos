@@ -18,9 +18,9 @@ const stats = [
   },
   {
     icon: Code2,
-    value: 50,
-    suffix: 'K+',
-    label: 'Lines of Code',
+    value: 100,
+    suffix: '%',
+    label: 'Success Rate',
     color: 'from-purple to-purple-light',
   },
   {

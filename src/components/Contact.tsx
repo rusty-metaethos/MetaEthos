@@ -11,23 +11,57 @@ export default function Contact() {
     message: '',
   })
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // In a real app, you'd send this to a backend
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        projectType: '',
-        budget: '',
-        message: '',
+    setIsSubmitting(true)
+
+    try {
+      // Using Web3Forms to send emails - Get your access key from https://web3forms.com
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: 'e3f54478-8315-4c3e-8f4f-1f412766f230',
+          name: formData.name,
+          email: formData.email,
+          company: formData.company || 'Not provided',
+          project_type: formData.projectType,
+          budget: formData.budget || 'Not specified',
+          message: formData.message,
+          subject: `New Project Inquiry from ${formData.name}`,
+          from_name: 'MetaEthos Website',
+          to_email: 'rusty@metaethos.net',
+        }),
       })
-    }, 3000)
+
+      const result = await response.json()
+
+      if (result.success) {
+        setSubmitted(true)
+        setTimeout(() => {
+          setSubmitted(false)
+          setFormData({
+            name: '',
+            email: '',
+            company: '',
+            projectType: '',
+            budget: '',
+            message: '',
+          })
+        }, 5000)
+      } else {
+        alert('There was an error sending your message. Please try again or email us directly at rusty@metaethos.net')
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      alert('There was an error sending your message. Please try again or email us directly at rusty@metaethos.net')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -175,9 +209,10 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="group w-full px-8 py-4 bg-purple text-white font-semibold rounded-lg hover:bg-purple-light transition-all hover:scale-105 glow-purple flex items-center justify-center gap-2"
+              disabled={isSubmitting}
+              className="group w-full px-8 py-4 bg-purple text-white font-semibold rounded-lg hover:bg-purple-light transition-all hover:scale-105 glow-purple flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Send Message
+              {isSubmitting ? 'Sending...' : 'Send Message'}
               <Send size={20} className="group-hover:translate-x-1 transition-transform" />
             </button>
           </form>

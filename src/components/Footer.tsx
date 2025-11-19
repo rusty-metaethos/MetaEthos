@@ -1,85 +1,126 @@
-import { Github, Linkedin, Mail } from 'lucide-react'
+import { Mail, MapPin, Phone } from 'lucide-react'
+import { FooterBackgroundGradient, TextHoverEffect } from './ui/hover-footer'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
+  const footerLinks = [
+    {
+      title: 'Services',
+      links: [
+        { label: 'Web Development', href: '#services' },
+        { label: 'Mobile Apps', href: '#services' },
+        { label: 'AI Solutions', href: '#services' },
+        { label: 'Database Design', href: '#services' },
+      ],
+    },
+    {
+      title: 'Company',
+      links: [
+        { label: 'About Us', href: '#' },
+        { label: 'Our Work', href: '#work' },
+        { label: 'Why Choose Us', href: '#why-us' },
+        { label: 'Contact', href: '#contact' },
+      ],
+    },
+  ]
+
+  const contactInfo = [
+    {
+      icon: <Mail size={18} className="text-purple" />,
+      text: 'hello@metaethos.com',
+      href: 'mailto:hello@metaethos.com',
+    },
+    {
+      icon: <Phone size={18} className="text-purple" />,
+      text: 'Contact Us',
+      href: '#contact',
+    },
+    {
+      icon: <MapPin size={18} className="text-purple" />,
+      text: 'Remote Services',
+    },
+  ]
+
   return (
-    <footer className="bg-navy border-t border-slate/20 py-12">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-12 mb-8">
-          <div className="flex flex-col items-center md:items-start">
-            <div className="mb-6">
-              <img src="/MetaEthos.png" alt="MetaEthos" className="h-40 md:h-48 w-auto" />
+    <footer className="bg-midnight/10 relative h-fit overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 py-12 z-40 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 lg:gap-12 pb-8">
+          {/* Brand section */}
+          <div className="flex flex-col space-y-4 items-center">
+            <div className="mb-2">
+              <img src="/MetaEthos.png" alt="MetaEthos" className="h-32 w-auto" />
             </div>
-            <p className="text-white/60 leading-relaxed text-center md:text-left">
-              Technology solutions with purpose. Custom websites, mobile apps, AI solutions, and databases for businesses that demand excellence.
+            <p className="text-sm leading-relaxed text-white/60 text-center">
+              Technology solutions with purpose. Building exceptional digital experiences.
             </p>
           </div>
 
-          <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#services" className="text-white/60 hover:text-purple transition-colors">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="#why-us" className="text-white/60 hover:text-purple transition-colors">
-                  Why Choose Us
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-white/60 hover:text-purple transition-colors">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-white font-semibold mb-4">Connect</h3>
-            <div className="flex gap-4">
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-purple/10 rounded-lg flex items-center justify-center hover:bg-purple/20 transition-colors"
-              >
-                <Github className="text-purple" size={20} />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-purple/10 rounded-lg flex items-center justify-center hover:bg-purple/20 transition-colors"
-              >
-                <Linkedin className="text-purple" size={20} />
-              </a>
-              <a
-                href="mailto:hello@metaethos.com"
-                className="w-10 h-10 bg-purple/10 rounded-lg flex items-center justify-center hover:bg-purple/20 transition-colors"
-              >
-                <Mail className="text-purple" size={20} />
-              </a>
+          {/* Footer link sections */}
+          {footerLinks.map((section) => (
+            <div key={section.title}>
+              <h4 className="text-white text-lg font-semibold mb-6">
+                {section.title}
+              </h4>
+              <ul className="space-y-3">
+                {section.links.map((link) => (
+                  <li key={link.label} className="relative">
+                    <a
+                      href={link.href}
+                      className="text-white/60 hover:text-purple transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
+          ))}
+
+          {/* Contact section */}
+          <div>
+            <h4 className="text-white text-lg font-semibold mb-6">
+              Contact Us
+            </h4>
+            <ul className="space-y-4">
+              {contactInfo.map((item, i) => (
+                <li key={i} className="flex items-center space-x-3">
+                  {item.icon}
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      className="text-white/60 hover:text-purple transition-colors text-sm"
+                    >
+                      {item.text}
+                    </a>
+                  ) : (
+                    <span className="text-white/60 text-sm">
+                      {item.text}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+            <p className="text-white/40 text-sm mt-6">
+              &copy; {currentYear} MetaEthos. All rights reserved.
+            </p>
           </div>
         </div>
 
-        <div className="border-t border-slate/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/40 text-sm">
-            © {currentYear} MetaEthos. All rights reserved.
-          </p>
-          <div className="flex gap-6 text-sm">
-            <a href="#" className="text-white/40 hover:text-purple transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-white/40 hover:text-purple transition-colors">
-              Terms of Service
-            </a>
-          </div>
+        <hr className="border-t border-white/10 my-8" />
+
+        {/* Footer bottom */}
+        <div className="flex justify-center items-center text-sm">
+
         </div>
       </div>
+
+      {/* Text hover effect */}
+      <div className="lg:flex hidden h-[30rem] -mt-52 -mb-36">
+        <TextHoverEffect text="MetaEthos" className="z-50" />
+      </div>
+
+      <FooterBackgroundGradient />
     </footer>
   )
 }

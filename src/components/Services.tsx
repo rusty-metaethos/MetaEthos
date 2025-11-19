@@ -16,8 +16,8 @@ const services = [
   {
     icon: Brain,
     title: 'AI Solutions',
-    description: 'Integrate cutting-edge AI into your business. Custom chatbots, automation, machine learning models, and intelligent data processing.',
-    features: ['Custom AI integration', 'Machine learning models', 'Chatbots & automation', 'Natural language processing'],
+    description: 'Integrate cutting-edge AI into your business. Custom chatbots, automation, MCP integrations, and intelligent data processing.',
+    features: ['Custom AI integration', 'MCP protocol integration', 'Chatbots & automation', 'Natural language processing'],
   },
   {
     icon: Database,
