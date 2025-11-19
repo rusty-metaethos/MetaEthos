@@ -38,7 +38,7 @@ const projects = [
 
 export default function Portfolio() {
   return (
-    <section id="work" className="relative py-32 bg-gradient-to-b from-midnight via-navy to-midnight overflow-hidden">
+    <section id="work" className="relative py-32 bg-gradient-to-b from-midnight via-navy to-midnight overflow-hidden scroll-mt-24">
       {/* Background effects */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-purple rounded-full filter blur-3xl animate-pulse" />

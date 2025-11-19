@@ -41,7 +41,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-32 bg-gradient-to-b from-navy via-midnight to-navy relative overflow-hidden">
+    <section id="services" className="py-32 bg-gradient-to-b from-navy via-midnight to-navy relative overflow-hidden scroll-mt-24">
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-10 w-96 h-96 bg-purple rounded-full filter blur-3xl animate-pulse" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-light rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />

@@ -28,8 +28,8 @@ export default function Footer() {
   const contactInfo = [
     {
       icon: <Mail size={18} className="text-purple" />,
-      text: 'hello@metaethos.com',
-      href: 'mailto:hello@metaethos.com',
+      text: 'sales@metaethos.com',
+      href: 'mailto:sales@metaethos.com',
     },
     {
       icon: <Phone size={18} className="text-purple" />,
@@ -47,11 +47,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-12 z-40 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 lg:gap-12 pb-8">
           {/* Brand section */}
-          <div className="flex flex-col space-y-4 items-center">
-            <div className="mb-2">
-              <img src="/MetaEthos.png" alt="MetaEthos" className="h-32 w-auto" />
+          <div className="flex flex-col items-center">
+            <div>
+              <img src="/MetaEthos.png" alt="MetaEthos" className="h-40 w-auto" />
             </div>
-            <p className="text-sm leading-relaxed text-white/60 text-center">
+            <p className="text-sm leading-relaxed text-white/60 text-center -mt-5">
               Technology solutions with purpose. Building exceptional digital experiences.
             </p>
           </div>
@@ -116,7 +116,7 @@ export default function Footer() {
       </div>
 
       {/* Text hover effect */}
-      <div className="lg:flex hidden h-[30rem] -mt-52 -mb-36">
+      <div className="lg:flex hidden h-[30rem] -mt-52 -mb-36 pointer-events-none">
         <TextHoverEffect text="MetaEthos" className="z-50" />
       </div>
 

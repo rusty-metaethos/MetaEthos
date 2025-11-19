@@ -72,7 +72,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-32 bg-midnight relative overflow-hidden">
+    <section id="contact" className="py-32 bg-midnight relative overflow-hidden scroll-mt-24">
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple rounded-full filter blur-3xl" />
       </div>

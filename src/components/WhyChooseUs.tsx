@@ -25,7 +25,7 @@ const benefits = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-us" className="py-32 bg-gradient-to-b from-navy via-midnight to-midnight relative overflow-hidden">
+    <section id="why-us" className="py-32 bg-gradient-to-b from-navy via-midnight to-midnight relative overflow-hidden scroll-mt-24">
       {/* Background effects */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-purple rounded-full filter blur-3xl animate-pulse" />

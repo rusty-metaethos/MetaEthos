@@ -2,7 +2,7 @@
 import { useEffect, useState, useRef, memo } from 'react';
 
 // --- Type Definitions ---
-type IconType = 'react' | 'typescript' | 'node' | 'python' | 'tailwind' | 'mongodb';
+type IconType = 'react' | 'typescript' | 'node' | 'python' | 'tailwind' | 'mongodb' | 'html' | 'css' | 'javascript';
 
 type GlowColor = 'purple' | 'purple-light';
 
@@ -35,6 +35,31 @@ interface GlowingOrbitPathProps {
 
 // --- Improved SVG Icon Components ---
 const iconComponents: Record<IconType, { component: () => React.JSX.Element; color: string }> = {
+  html: {
+    component: () => (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+        <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z" fill="#E34F26"/>
+      </svg>
+    ),
+    color: '#E34F26'
+  },
+  css: {
+    component: () => (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+        <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.751L12 19.351l5.379-1.443.744-8.157z" fill="#1572B6"/>
+      </svg>
+    ),
+    color: '#1572B6'
+  },
+  javascript: {
+    component: () => (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+        <rect width="24" height="24" fill="#F7DF1E"/>
+        <path d="M22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z" fill="#323330"/>
+      </svg>
+    ),
+    color: '#F7DF1E'
+  },
   react: {
     component: () => (
       <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
@@ -50,18 +75,20 @@ const iconComponents: Record<IconType, { component: () => React.JSX.Element; col
   },
   typescript: {
     component: () => (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-        <rect width="24" height="24" rx="5" fill="#3178C6"/>
-        <path d="M13.5 16.5v3.75h2.25V16.5h3.75v-2.25h-3.75V10.5h-2.25v3.75H9.75v2.25h3.75z" fill="white"/>
-        <path d="M7.5 9h9v1.5h-3v7.5h-3V10.5h-3V9z" fill="white"/>
+      <svg viewBox="0 0 256 256" fill="none" className="w-full h-full">
+        <rect width="256" height="256" rx="28" fill="#3178C6"/>
+        <path d="M20 20h216v216H20V20z" fill="#3178C6"/>
+        <path d="M150.518 200.475v27.62c4.492 2.302 9.805 4.028 15.938 5.179 6.133 1.151 12.597 1.726 19.393 1.726 6.622 0 12.914-.633 18.874-1.899 5.96-1.266 11.187-3.352 15.678-6.257 4.492-2.906 8.048-6.704 10.669-11.394 2.62-4.689 3.93-10.486 3.93-17.391 0-5.006-.749-9.394-2.246-13.163a30.748 30.748 0 00-6.479-10.055c-2.821-2.935-6.205-5.567-10.149-7.898-3.945-2.33-8.394-4.531-13.347-6.602-3.628-1.497-6.881-2.949-9.761-4.359-2.879-1.41-5.327-2.848-7.342-4.316-2.016-1.467-3.571-3.021-4.665-4.661-1.094-1.64-1.641-3.495-1.641-5.567 0-1.899.489-3.61 1.468-5.135s2.362-2.834 4.147-3.927c1.785-1.094 3.973-1.942 6.565-2.547 2.591-.604 5.471-.906 8.638-.906 2.304 0 4.737.173 7.299.518 2.563.345 5.14.877 7.732 1.597a53.669 53.669 0 017.558 2.719 41.7 41.7 0 016.781 3.797v-25.807c-4.204-1.611-8.797-2.805-13.778-3.582-4.981-.777-10.697-1.165-17.147-1.165-6.565 0-12.784.705-18.658 2.115-5.874 1.409-11.043 3.61-15.506 6.602-4.463 2.993-7.99 6.805-10.582 11.437-2.591 4.632-3.887 10.17-3.887 16.615 0 8.228 2.375 15.248 7.127 21.06 4.751 5.811 11.963 10.731 21.638 14.759a291.458 291.458 0 0110.625 4.575c3.283 1.496 6.119 3.049 8.509 4.66 2.39 1.611 4.276 3.366 5.658 5.265 1.382 1.899 2.073 4.057 2.073 6.474a9.901 9.901 0 01-1.296 4.963c-.863 1.524-2.174 2.848-3.93 3.97-1.756 1.122-3.945 1.999-6.565 2.632-2.62.633-5.687.95-9.2.95-5.989 0-11.92-1.05-17.794-3.151-5.875-2.1-11.317-5.25-16.327-9.451v27.62z" fill="white"/>
+        <path d="M131.88 20h-52.466v24.691h27.62v131.184h24.846V44.691h27.62V20h-27.62z" fill="white"/>
       </svg>
     ),
     color: '#3178C6'
   },
   node: {
     component: () => (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-        <path d="M11.998 24c-.321 0-.641-.084-.922-.247l-2.936-1.737c-.438-.245-.224-.332-.08-.383.585-.203.703-.25 1.328-.602.065-.037.151-.023.218.017l2.256 1.339c.082.045.198.045.275 0l8.795-5.076c.082-.047.135-.141.135-.241V6.921c0-.103-.055-.198-.137-.246l-8.791-5.072c-.081-.047-.189-.047-.273 0L2.075 6.675c-.084.048-.139.144-.139.246v10.146c0 .1.055.194.139.241l2.409 1.392c1.307.654 2.108-.116 2.108-.89V7.787c0-.142.114-.253.256-.253h1.115c.139 0 .255.112.255.253v10.021c0 1.745-.95 2.745-2.604 2.745-.508 0-.909 0-2.026-.551L1.352 18.675C.533 18.215 0 17.352 0 16.43V6.284c0-.922.533-1.786 1.352-2.245L10.147-.963c.8-.452 1.866-.452 2.657 0l8.796 5.002c.819.459 1.352 1.323 1.352 2.245v10.146c0 .922-.533 1.783-1.352 2.245l-8.796 5.078c-.28.163-.601.247-.926.247z" fill="#339933"/>
+      <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
+        <path d="M12 2L3 7v10l9 5 9-5V7l-9-5z" fill="#339933" stroke="#339933" strokeWidth="0.5"/>
+        <text x="12" y="14.5" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold" fontFamily="Arial, sans-serif">JS</text>
       </svg>
     ),
     color: '#339933'
@@ -103,71 +130,71 @@ SkillIcon.displayName = 'SkillIcon';
 const skillsConfig: SkillConfig[] = [
   // Inner Orbit
   { 
-    id: 'react',
-    orbitRadius: 100, 
-    size: 45, 
-    speed: 1, 
-    iconType: 'react', 
-    phaseShift: 0, 
-    glowColor: 'purple',
-    label: 'React',
-    url: 'https://react.dev'
-  },
-  { 
-    id: 'typescript',
-    orbitRadius: 100, 
-    size: 45, 
-    speed: 1, 
-    iconType: 'typescript', 
-    phaseShift: (2 * Math.PI) / 3, 
-    glowColor: 'purple',
-    label: 'TypeScript',
-    url: 'https://www.typescriptlang.org'
-  },
-  { 
-    id: 'tailwind',
+    id: 'html',
     orbitRadius: 100, 
     size: 40, 
     speed: 1, 
-    iconType: 'tailwind', 
+    iconType: 'html', 
+    phaseShift: 0, 
+    glowColor: 'purple',
+    label: 'HTML5',
+    url: 'https://developer.mozilla.org/en-US/docs/Web/HTML'
+  },
+  { 
+    id: 'css',
+    orbitRadius: 100, 
+    size: 45, 
+    speed: 1, 
+    iconType: 'css', 
+    phaseShift: (2 * Math.PI) / 3, 
+    glowColor: 'purple',
+    label: 'CSS3',
+    url: 'https://developer.mozilla.org/en-US/docs/Web/CSS'
+  },
+  { 
+    id: 'javascript',
+    orbitRadius: 100, 
+    size: 40, 
+    speed: 1, 
+    iconType: 'javascript', 
     phaseShift: (4 * Math.PI) / 3, 
     glowColor: 'purple',
-    label: 'Tailwind CSS',
-    url: 'https://tailwindcss.com'
+    label: 'JavaScript',
+    url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'
   },
   // Outer Orbit
+  { 
+    id: 'react',
+    orbitRadius: 180, 
+    size: 50, 
+    speed: -0.6, 
+    iconType: 'react', 
+    phaseShift: 0, 
+    glowColor: 'purple-light',
+    label: 'React',
+    url: 'https://react.dev'
+  },
   { 
     id: 'node',
     orbitRadius: 180, 
     size: 45, 
     speed: -0.6, 
     iconType: 'node', 
-    phaseShift: 0, 
+    phaseShift: (2 * Math.PI) / 3, 
     glowColor: 'purple-light',
     label: 'Node.js',
     url: 'https://nodejs.org'
   },
   { 
-    id: 'python',
-    orbitRadius: 180, 
-    size: 50, 
-    speed: -0.6, 
-    iconType: 'python', 
-    phaseShift: (2 * Math.PI) / 3, 
-    glowColor: 'purple-light',
-    label: 'Python',
-    url: 'https://www.python.org'
-  },
-  { 
-    id: 'mongodb',
+    id: 'tailwind',
     orbitRadius: 180, 
     size: 40, 
     speed: -0.6, 
-    iconType: 'mongodb', 
+    iconType: 'tailwind', 
     phaseShift: (4 * Math.PI) / 3, 
     glowColor: 'purple-light',
-    label: 'MongoDB',
-    url: 'https://www.mongodb.com'
+    label: 'Tailwind CSS',
+    url: 'https://tailwindcss.com'
   },
 ];
 
