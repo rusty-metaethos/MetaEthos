@@ -116,7 +116,7 @@ export default function Footer() {
       </div>
 
       {/* Text hover effect */}
-      <div className="lg:flex hidden h-[30rem] -mt-52 -mb-36 pointer-events-auto">
+      <div className="lg:flex hidden h-[30rem] -mt-24 -mb-36">
         <TextHoverEffect text="MetaEthos" className="z-50" />
       </div>
 
