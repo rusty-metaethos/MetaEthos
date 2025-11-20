@@ -47,22 +47,22 @@ export default function WhyChooseUs() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-16">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon
             return (
               <div
                 key={index}
-                className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 hover:border-purple/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple/20"
+                className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-8 md:p-10 hover:border-purple/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple/20"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-purple/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
-                <div className="flex items-start gap-8 relative z-10">
-                  <div className="flex-shrink-0 w-20 h-20 bg-gradient-to-br from-purple to-purple-light rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-purple/30">
-                    <Icon className="text-white" size={36} />
+                <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-8 relative z-10">
+                  <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple to-purple-light rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-purple/30">
+                    <Icon className="text-white" size={32} />
                   </div>
                   <div>
-                    <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-purple-light transition-colors">{benefit.title}</h3>
-                    <p className="text-white/80 leading-relaxed text-lg">{benefit.description}</p>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4 group-hover:text-purple-light transition-colors">{benefit.title}</h3>
+                    <p className="text-white/80 leading-relaxed text-base sm:text-lg">{benefit.description}</p>
                   </div>
                 </div>
               </div>

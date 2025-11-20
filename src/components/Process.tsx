@@ -73,30 +73,30 @@ export default function Process() {
               
               {/* Floating stats overlay */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="grid grid-cols-2 gap-6 p-8">
-                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 text-center">
-                    <div className="text-4xl font-black bg-gradient-to-r from-purple to-purple-light bg-clip-text text-transparent mb-2">
-                      100%
+                <div className="grid grid-cols-2 gap-3 sm:gap-6 p-4 sm:p-8">
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 sm:p-6 text-center">
+                    <div className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-purple to-purple-light bg-clip-text text-transparent mb-2">
+                      100
                     </div>
-                    <div className="text-sm text-white/70 font-medium">Transparency</div>
+                    <div className="text-xs sm:text-sm text-white/70 font-medium">Transparency</div>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 text-center">
-                    <div className="text-4xl font-black bg-gradient-to-r from-purple to-purple-light bg-clip-text text-transparent mb-2">
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 sm:p-6 text-center">
+                    <div className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-purple to-purple-light bg-clip-text text-transparent mb-2">
                       Agile
                     </div>
-                    <div className="text-sm text-white/70 font-medium">Methodology</div>
+                    <div className="text-xs sm:text-sm text-white/70 font-medium">Methodology</div>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 text-center">
-                    <div className="text-4xl font-black bg-gradient-to-r from-purple to-purple-light bg-clip-text text-transparent mb-2">
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 sm:p-6 text-center">
+                    <div className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-purple to-purple-light bg-clip-text text-transparent mb-2">
                       24/7
                     </div>
-                    <div className="text-sm text-white/70 font-medium">Support</div>
+                    <div className="text-xs sm:text-sm text-white/70 font-medium">Support</div>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 text-center">
-                    <div className="text-4xl font-black bg-gradient-to-r from-purple to-purple-light bg-clip-text text-transparent mb-2">
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 sm:p-6 text-center">
+                    <div className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-purple to-purple-light bg-clip-text text-transparent mb-2">
                       ∞
                     </div>
-                    <div className="text-sm text-white/70 font-medium">Iterations</div>
+                    <div className="text-xs sm:text-sm text-white/70 font-medium">Iterations</div>
                   </div>
                 </div>
               </div>

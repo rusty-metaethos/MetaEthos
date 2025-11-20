@@ -57,13 +57,13 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon
             return (
               <div
                 key={index}
-                className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 hover:border-purple/50 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl hover:shadow-purple/20 overflow-hidden"
+                className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-8 md:p-10 hover:border-purple/50 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl hover:shadow-purple/20 overflow-hidden"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-purple/10 via-purple-light/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />

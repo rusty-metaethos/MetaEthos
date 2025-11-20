@@ -136,39 +136,41 @@ export default function Navigation({ scrolled }: NavigationProps) {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 flex flex-col gap-4">
-            {menuItems.map((item) => (
-              <div key={item.id}>
-                <a
-                  href={item.url}
-                  className="text-white/80 hover:text-purple transition-colors block"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.title}
-                </a>
-                {item.dropdown && item.items && (
-                  <div className="ml-4 mt-2 flex flex-col gap-2">
-                    {item.items.map((subItem) => (
-                      <a
-                        key={subItem.id}
-                        href={subItem.url}
-                        className="text-white/60 hover:text-purple transition-colors text-sm"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {subItem.title}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-            <a
-              href="#contact"
-              className="px-6 py-2 bg-purple text-white font-semibold rounded-lg hover:bg-purple-light transition-all text-center"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Start a Project
-            </a>
+          <div className="md:hidden absolute top-full left-0 right-0 bg-midnight/98 backdrop-blur-xl border-b border-white/10 shadow-2xl">
+            <div className="px-6 py-6 flex flex-col gap-4">
+              {menuItems.map((item) => (
+                <div key={item.id}>
+                  <a
+                    href={item.url}
+                    className="text-white/80 hover:text-purple transition-colors block text-lg font-medium"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.title}
+                  </a>
+                  {item.dropdown && item.items && (
+                    <div className="ml-4 mt-2 flex flex-col gap-2">
+                      {item.items.map((subItem) => (
+                        <a
+                          key={subItem.id}
+                          href={subItem.url}
+                          className="text-white/60 hover:text-purple transition-colors text-sm"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {subItem.title}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+              <a
+                href="#contact"
+                className="px-6 py-3 bg-purple text-white font-semibold rounded-lg hover:bg-purple-light transition-all text-center mt-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Start a Project
+              </a>
+            </div>
           </div>
         )}
       </div>
