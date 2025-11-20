@@ -136,8 +136,8 @@ export default function Navigation({ scrolled }: NavigationProps) {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-midnight/98 backdrop-blur-xl border-b border-white/10 shadow-2xl">
-            <div className="px-6 py-6 flex flex-col gap-4">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-midnight/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl z-50">
+            <div className="px-6 py-6 flex flex-col gap-4 bg-midnight/90 backdrop-blur-xl">
               {menuItems.map((item) => (
                 <div key={item.id}>
                   <a
