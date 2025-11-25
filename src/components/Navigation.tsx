@@ -47,8 +47,8 @@ export default function Navigation({ scrolled }: NavigationProps) {
     >
       <div className="max-w-7xl mx-auto px-6 py-2 relative overflow-visible">
         <div className="flex items-center justify-between gap-8">
-          <a href="#" className="flex items-center gap-2 -my-8">
-            <img src="/MetaEthos.png" alt="MetaEthos" className="h-40 md:h-48 w-auto" />
+          <a href="#" className="flex items-center gap-2 -my-2 md:-my-8">
+            <img src="/MetaEthos.png" alt="MetaEthos" className="h-20 md:h-48 w-auto" />
           </a>
 
           {/* Desktop Navigation */}

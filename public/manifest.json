@@ -1,0 +1,17 @@
+{
+  "name": "MetaEthos",
+  "short_name": "MetaEthos",
+  "description": "Technology Solutions with Purpose",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#8B5CF6",
+  "icons": [
+    {
+      "src": "/MetaEthos_Icon.PNG",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
