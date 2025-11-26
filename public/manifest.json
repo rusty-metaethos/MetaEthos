@@ -4,7 +4,7 @@
   "description": "Technology Solutions with Purpose",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#000000",
+  "background_color": "#ffffff",
   "theme_color": "#8B5CF6",
   "icons": [
     {
